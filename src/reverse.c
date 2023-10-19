@@ -6,42 +6,42 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:37:54 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/10/18 00:30:07 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:01:39 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_reverse_stack(t_stack *stack)
-{
-	int	pos;
-
-	if (stack->size <= 1)
-		return ;
-	pos = stack->size - 1;
-	while (pos > 0)
-	{
-		ft_swap(&stack->items[pos], &stack->items[pos - 1]);
-		pos--;
-	}
-	stack->items[pos] = temp;
-}
-
 void	reverse_a(t_stack *a)
 {
 	ft_reverse_stack(a);
-	ft_printf("ra\n");
+	ft_printf("rra\n");
 }
 
 void	reverse_b(t_stack *b)
 {
 	ft_reverse_stack(b);
-	ft_printf("rb\n");
+	ft_printf("rrb\n");
 }
 
-void	reverse_both(t_stack *b)
+void	reverse_both(t_stack *a, t_stack *b)
 {
 	ft_reverse_stack(a);
 	ft_reverse_stack(b);
-	ft_printf("rr\n");
+	ft_printf("rrr\n");
 }
+
+void	ft_reverse_stack(t_stack *stack)
+{
+	int	i;
+
+	if (stack->top <= 1)
+		return ;
+	i = 0;
+	while (i < stack->top - 1)
+	{
+		ft_swap(&stack->items[i], &stack->items[i + 1]);
+		i++;
+	}
+}
+

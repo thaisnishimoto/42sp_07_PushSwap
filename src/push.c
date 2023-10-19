@@ -1,47 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 12:37:54 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/10/18 15:01:49 by tmina-ni         ###   ########.fr       */
+/*   Created: 2023/10/18 14:30:04 by tmina-ni          #+#    #+#             */
+/*   Updated: 2023/10/18 15:59:32 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	rotate_a(t_stack *a)
+void	push_to_a(t_stack *b, t_stack *a)
 {
-	ft_rotate_stack(a);
-	ft_printf("ra\n");
+	ft_push_to_stack(b, a);
+	ft_printf("pa\n");
 }
 
-void	rotate_b(t_stack *b)
+void	push_to_b(t_stack *a, t_stack *b)
 {
-	ft_rotate_stack(b);
-	ft_printf("rb\n");
+	ft_push_to_stack(a, b);
+	ft_printf("pb\n");
 }
 
-void	rotate_both(t_stack *a, t_stack *b)
+void	ft_push_to_stack(t_stack *origin, t_stack *receiver)
 {
-	ft_rotate_stack(a);
-	ft_rotate_stack(b);
-	ft_printf("rr\n");
-}
-
-void	ft_rotate_stack(t_stack *stack)
-{
-	int	i;
-
-	if (stack->top <= 1)
+	if (origin->top == 0)
 		return ;
-	i = stack->top - 1;
-	while (i > 0)
-	{
-		ft_swap(&stack->items[i], &stack->items[i - 1]);
-		i--;
-	}
+	receiver->items[receiver->top] = origin->items[origin->top - 1];
+	receiver->top++;
+	origin->top--;
 }
 
