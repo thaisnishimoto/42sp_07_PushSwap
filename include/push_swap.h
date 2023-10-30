@@ -6,7 +6,7 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:46:16 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/10/18 15:58:48 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/10/26 23:58:37 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,11 @@ void	reverse_a(t_stack *a);
 void	reverse_b(t_stack *b);
 void	reverse_both(t_stack *a, t_stack *b);
 void	ft_reverse_stack(t_stack *stack);
+
+//Sorting functions
+void	ft_bubble_sort(t_stack *a, t_stack *b);
+void	ft_radix_sort(t_stack *a, t_stack *b);
+
+void	print_sequence(t_stack *stack);
 
 #endif
