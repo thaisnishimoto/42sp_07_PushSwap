@@ -6,13 +6,13 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:53:48 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/11/01 10:54:07 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/01 14:39:34 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	count_digits(t_stack *a, int base)
+int	count_digits(t_stack *a, int base, int *neg_flag)
 {
 	int	i;
 	int	d;
@@ -25,6 +25,8 @@ int	count_digits(t_stack *a, int base)
 	{
 		d = 0;
 		num = a->items[i];
+		if (num < 0)
+			*neg_flag = 1;
 		while (num != 0)
 		{
 			num = num / base;
@@ -133,25 +135,21 @@ void	ft_radix_sort(t_stack *a, t_stack *b, int base)
 
 	divisor = 1;
 	i = 1;
-//	neg_flag = 0;
-	digits = count_digits(a, base);
-	ft_printf("digits: %d\n", digits);
+	neg_flag = 0;
+	digits = count_digits(a, base, &neg_flag);
+//	ft_printf("digits: %d\n", digits);
 	while (i <= digits)
 	{
 //		ft_printf("i: %d\n", i);
 		if (i % 2 != 0)
 		{
 			sort_bit_stack_a(a, b, base, divisor);
-			ft_printf("stack b: ");
-			print_sequence(b);
 			divisor *= base;
 			i++;
 		}
 		else
 		{
 			sort_bit_stack_b(b, a, base, divisor);
-			ft_printf("stack a: ");
-			print_sequence(a);
 			divisor *= base;
 			i++;
 		}
@@ -165,11 +163,13 @@ void	ft_radix_sort(t_stack *a, t_stack *b, int base)
 			while (count >= 0)
 			{
 				reverse_a(a);
-				if (a->items[top - 1] < 0)
+				if (a->items[a->top - 1] < 0)
 					push_to_b(a, b);
 				count--;
 			}
 		}
+		while (b->top != 0)
+			push_to_a(b, a);
 	}
 	else
 	{
@@ -178,15 +178,17 @@ void	ft_radix_sort(t_stack *a, t_stack *b, int base)
 			count = b->top - 1;
 			while (count >= 0)
 			{
-				if (b->items[top - 1] > 0)
+				if (b->items[b->top - 1] >= 0)
 					push_to_a(b, a);
 				else
 					rotate_b(b);
 				count--;
 			}
 		}
+		while (b->top != 0)
+		{
+			rotate_b(b);
+			push_to_a(b, a);
+		}
 	}
-	while (b->top != 0)
-		push_to_a(b, a);
-	print_sequence(a);
 }
