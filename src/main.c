@@ -108,12 +108,13 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		exit(EXIT_FAILURE);
 	num_matrix = parse_argv(argc, argv);
+//	ft_printf("max int: %d\n", INT_MAX);
+	//check for duplicate
 	generate_stacks(&a, &b, num_matrix);
+	//check_if_sorted;
 	//print_sequence(&a);
 	ft_radix_sort(&a, &b, 10);
 //	ft_bubble_sort(&a, &b);
 //	print_sequence(&a);
-//	ft_printf("max int: %d\n", INT_MAX);
-	//check for duplicate
 	return (0);
 }
