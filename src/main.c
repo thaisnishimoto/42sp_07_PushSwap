@@ -6,7 +6,7 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:53:26 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/10/30 13:29:13 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/10/31 16:15:06 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,15 +104,15 @@ int	main(int argc, char *argv[])
 	t_stack	b;
 	char	**num_matrix;
 
-	ft_printf("argc = %d\n", argc);
+//	ft_printf("argc = %d\n", argc);
 	if (argc < 2)
 		exit(EXIT_FAILURE);
 	num_matrix = parse_argv(argc, argv);
 	generate_stacks(&a, &b, num_matrix);
-	print_sequence(&a);
-	ft_radix_sort(&a, &b);
-	//ft_bubble_sort(&a, &b);
-	print_sequence(&a);
+	//print_sequence(&a);
+	ft_radix_sort(&a, &b, 16);
+//	ft_bubble_sort(&a, &b);
+//	print_sequence(&a);
 //	ft_printf("max int: %d\n", INT_MAX);
 	//check for duplicate
 	return (0);
