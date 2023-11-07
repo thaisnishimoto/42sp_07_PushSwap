@@ -6,7 +6,7 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:53:26 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/11/01 14:45:57 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/07 14:45:19 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,14 @@ int	main(int argc, char *argv[])
 //	ft_printf("max int: %d\n", INT_MAX);
 	//check for duplicate
 	generate_stacks(&a, &b, num_matrix);
+//	ft_simplify_nums(&a);
 	//check_if_sorted;
-	//print_sequence(&a);
-	ft_radix_sort(&a, &b, 10);
+	//print_sequence(&stack_cpy);
+//	ft_opt_radixsort(&a, &b);
+	ft_radixsort(&a, &b, 10);
 //	ft_bubble_sort(&a, &b);
 //	print_sequence(&a);
+	free(a.items);
+	free(b.items);
 	return (0);
 }
