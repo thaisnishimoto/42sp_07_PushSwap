@@ -6,24 +6,11 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:53:26 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/11/07 14:45:19 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:49:51 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	print_sequence(t_stack *stack)
-{
-	int	i;
-
-	i = stack->top - 1;
-	ft_printf("[top] ");
-	while (i >= 0)
-		ft_printf("%d ", stack->items[i--]);
-	ft_printf("[bottom]");
-	ft_printf("\n");
-
-}
 
 char	**parse_argv(int argc, char *argv[])
 {
@@ -96,6 +83,7 @@ void	generate_stacks(t_stack *a, t_stack *b, char **num_matrix)
 		i++;
 		count--;
 	}
+	ft_free_matrix(num_matrix, i);
 }
 
 int	main(int argc, char *argv[])
@@ -110,13 +98,23 @@ int	main(int argc, char *argv[])
 	num_matrix = parse_argv(argc, argv);
 //	ft_printf("max int: %d\n", INT_MAX);
 	//check for duplicate
+	//check for ascii
 	generate_stacks(&a, &b, num_matrix);
+	if (check_if_sorted(&a) == 1)
+	{
 //	ft_simplify_nums(&a);
-	//check_if_sorted;
-	//print_sequence(&stack_cpy);
+//	print_sequence(&a);
 //	ft_opt_radixsort(&a, &b);
-	ft_radixsort(&a, &b, 10);
+//	ft_radixsort(&a, &b, 10);
 //	ft_bubble_sort(&a, &b);
+		if (a.maxsize < 10)
+			ft_small_sort(&a, &b);
+//	ft_sort_3(&a);
+		else
+//		ft_opt_radixsort(&a, &b);
+			ft_divide_sort(&a, &b);
+	}
+//	ft_proximity_sort(&a, &b);
 //	print_sequence(&a);
 	free(a.items);
 	free(b.items);
