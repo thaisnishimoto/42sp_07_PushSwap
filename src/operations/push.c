@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:30:04 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/10/18 15:04:28 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:48:08 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	swap_a(t_stack *a)
+void	push_to_a(t_stack *b, t_stack *a)
 {
-	ft_swap_top(a);
-	ft_printf("sa\n");
+	ft_push_to_stack(b, a);
+	ft_printf("pa\n");
 }
 
-void	swap_b(t_stack *b)
+void	push_to_b(t_stack *a, t_stack *b)
 {
-	ft_swap_top(b);
-	ft_printf("sb\n");
+	ft_push_to_stack(a, b);
+	ft_printf("pb\n");
 }
 
-void	swap_both(t_stack *a, t_stack *b)
+void	ft_push_to_stack(t_stack *origin, t_stack *receiver)
 {
-	ft_swap_top(a);
-	ft_swap_top(b);
-	ft_printf("ss\n");
-}
-
-void	ft_swap_top(t_stack *stack)
-{
-	int	i;
-
-	if (stack->top <= 1)
+	if (origin->top == 0)
 		return ;
-	i = stack->top - 1;
-	ft_swap(&stack->items[i], &stack->items[i - 1]);
+	receiver->items[receiver->top] = origin->items[origin->top - 1];
+	receiver->top++;
+	origin->top--;
 }
 

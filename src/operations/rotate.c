@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:37:54 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/10/18 15:01:39 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:48:32 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	reverse_a(t_stack *a)
+void	rotate_a(t_stack *a)
 {
-	ft_reverse_stack(a);
-	ft_printf("rra\n");
+	ft_rotate_stack(a);
+	ft_printf("ra\n");
 }
 
-void	reverse_b(t_stack *b)
+void	rotate_b(t_stack *b)
 {
-	ft_reverse_stack(b);
-	ft_printf("rrb\n");
+	ft_rotate_stack(b);
+	ft_printf("rb\n");
 }
 
-void	reverse_both(t_stack *a, t_stack *b)
+void	rotate_both(t_stack *a, t_stack *b)
 {
-	ft_reverse_stack(a);
-	ft_reverse_stack(b);
-	ft_printf("rrr\n");
+	ft_rotate_stack(a);
+	ft_rotate_stack(b);
+	ft_printf("rr\n");
 }
 
-void	ft_reverse_stack(t_stack *stack)
+void	ft_rotate_stack(t_stack *stack)
 {
 	int	i;
 
 	if (stack->top <= 1)
 		return ;
-	i = 0;
-	while (i < stack->top - 1)
+	i = stack->top - 1;
+	while (i > 0)
 	{
-		ft_swap(&stack->items[i], &stack->items[i + 1]);
-		i++;
+		ft_swap(&stack->items[i], &stack->items[i - 1]);
+		i--;
 	}
 }
 
