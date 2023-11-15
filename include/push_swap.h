@@ -6,7 +6,7 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:46:16 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/11/10 17:49:01 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:48:36 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_sort_3(t_stack *a);
 void	ft_small_sort(t_stack *a, t_stack *b);
 void	ft_proximity_sort(t_stack *a, t_stack *b);
 void	ft_divide_sort(t_stack *a, t_stack *b);
+void	ft_turk_sort(t_stack *a, t_stack *b);
 
 void	ft_simplify_nums(t_stack *a);
 int	*sort_cpy(t_stack *a);

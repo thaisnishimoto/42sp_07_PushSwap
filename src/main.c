@@ -6,7 +6,7 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:53:26 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/11/10 17:49:51 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/14 19:59:31 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,12 +107,13 @@ int	main(int argc, char *argv[])
 //	ft_opt_radixsort(&a, &b);
 //	ft_radixsort(&a, &b, 10);
 //	ft_bubble_sort(&a, &b);
-		if (a.maxsize < 10)
-			ft_small_sort(&a, &b);
+//		if (a.maxsize < 10)
+//			ft_small_sort(&a, &b);
 //	ft_sort_3(&a);
-		else
+//		else
 //		ft_opt_radixsort(&a, &b);
-			ft_divide_sort(&a, &b);
+			ft_turk_sort(&a, &b);
+			//ft_divide_sort(&a, &b);
 	}
 //	ft_proximity_sort(&a, &b);
 //	print_sequence(&a);

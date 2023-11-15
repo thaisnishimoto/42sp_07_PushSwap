@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tiny_sort.c                                     :+:      :+:    :+:   */
+/*   ft_small_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:02:27 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/11/10 07:11:40 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:51:56 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,27 +69,27 @@ void	ft_opt_move_to_top_a(t_stack *a, int num)
 	}
 }
 
-void	ft_opt_move_to_top_b(t_stack *b, int num)
+void	ft_opt_move_to_top_b(t_stack *b, int *num_pos)
 {
-	int	num_pos;
-
-	num_pos = 0;
-	while (b->items[num_pos] != num)
-		num_pos++;
-	if (num_pos < b->top / 2)
+//	int	num_pos;
+//
+//	num_pos = 0;
+//	while (b->items[num_pos] != num)
+//		num_pos++;
+	if (*num_pos < b->top / 2)
 	{
-		while (num_pos >= 0)
+		while (*num_pos >= 0)
 		{
 			reverse_b(b);
-			num_pos--;
+			(*num_pos)--;
 		}
 	}
 	else
 	{
-		while (num_pos < b->top - 1)
+		while (*num_pos < b->top - 1)
 		{
 			rotate_b(b);
-			num_pos++;
+			(*num_pos)++;
 		}
 	}
 }
