@@ -6,7 +6,7 @@
 #    By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 11:34:26 by tmina-ni          #+#    #+#              #
-#    Updated: 2023/11/15 22:38:48 by tmina-ni         ###   ########.fr        #
+#    Updated: 2023/11/16 17:21:13 by tmina-ni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MAKE_NO_PRINT = $(MAKE) --no-print-directory
 LIB_PATH = ./libft/
 HEADER_PATH = ./include
 SRC_PATH = ./src
-SRC_BONUS = ./src_bonus
+BONUS_PATH = ./src_bonus
 
 #================================FILES=========================================#
 
@@ -30,7 +30,7 @@ NAME = push_swap
 BONUS_NAME = checker
 SRC = $(wildcard $(SRC_PATH)/*.c) $(wildcard $(SRC_PATH)/operations/*.c) $(wildcard $(SRC_PATH)/extra_algos/*.c) 
 OBJ = $(SRC:.c=.o)
-SRC_BONUS = $(wildcard $(BONUS_PATH)/*.c)
+SRC_BONUS = $(wildcard $(BONUS_PATH)/*.c) $(wildcard $(BONUS_PATH)/operations/*.c)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 HEADER = $(HEADER_PATH)/push_swap.h
 HEADER_BONUS = $(HEADER_PATH)/push_swap_bonus.h
