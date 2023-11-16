@@ -6,7 +6,7 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:53:26 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/11/16 15:02:23 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/16 20:32:54 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ char	**parse_argv(int argc, char *argv[])
 	{
 		temp = ft_strjoin(num_str, " ");
 		free(num_str);
+		if (temp == NULL)
+			return (NULL);
 		num_str = ft_strjoin(temp, argv[i]);
 		free(temp);
+		if (num_str == NULL)
+			return (NULL);
 	}
 	num_matrix = ft_split(num_str, ' ');
 	free(num_str);
@@ -115,12 +119,16 @@ int	main(int argc, char *argv[])
 	t_stack	b;
 	char	**num_matrix;
 
-	if (argc < 2 || argv[1][0] == '\0')
+	if (argc == 1)
+		return (EXIT_FAILURE);
+	if (argv[1][0] == '\0')
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	num_matrix = parse_argv(argc, argv);
+	if (num_matrix == NULL)
+		ft_handle_error(&a, &b, 0, NULL);
 	generate_stacks(&a, &b, num_matrix);
 	check_for_duplicate(&a, &b);
 	if (check_if_sorted(&a) == 1)
