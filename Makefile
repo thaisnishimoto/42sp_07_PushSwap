@@ -6,7 +6,7 @@
 #    By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 11:34:26 by tmina-ni          #+#    #+#              #
-#    Updated: 2023/11/07 15:46:23 by tmina-ni         ###   ########.fr        #
+#    Updated: 2023/11/15 22:38:48 by tmina-ni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC_BONUS = ./src_bonus
 
 NAME = push_swap
 BONUS_NAME = checker
-SRC = $(wildcard $(SRC_PATH)/*.c) $(wildcard $(SRC_PATH)/operations/*.c) 
+SRC = $(wildcard $(SRC_PATH)/*.c) $(wildcard $(SRC_PATH)/operations/*.c) $(wildcard $(SRC_PATH)/extra_algos/*.c) 
 OBJ = $(SRC:.c=.o)
 SRC_BONUS = $(wildcard $(BONUS_PATH)/*.c)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)

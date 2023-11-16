@@ -6,7 +6,7 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:30:04 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/11/07 15:48:08 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/15 22:05:00 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,3 @@ void	ft_push_to_stack(t_stack *origin, t_stack *receiver)
 	receiver->top++;
 	origin->top--;
 }
-

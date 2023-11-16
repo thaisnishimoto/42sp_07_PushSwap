@@ -6,7 +6,7 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:53:26 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/11/14 19:59:31 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:02:23 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	**parse_argv(int argc, char *argv[])
 {
-	int	i;
+	int		i;
 	char	*num_str;
 	char	*temp;
 	char	**num_matrix;
@@ -33,11 +33,39 @@ char	**parse_argv(int argc, char *argv[])
 	return (num_matrix);
 }
 
-int	ft_valid_atoi(const char *nptr)
+void	generate_stacks(t_stack *a, t_stack *b, char **n_matrix)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	while (n_matrix[count])
+		count++;
+	a->maxsize = count;
+	a->top = count;
+	a->items = ft_calloc(count + 1, sizeof(int));
+	if (a->items == NULL)
+		ft_handle_error(a, b, 0, n_matrix);
+	b->maxsize = count;
+	b->top = 0;
+	b->items = ft_calloc(count + 1, sizeof(int));
+	if (b->items == NULL)
+		ft_handle_error(a, b, 1, n_matrix);
+	i = 0;
+	while (count > 0)
+	{
+		a->items[i] = valid_atoi(n_matrix[count - 1], a, b, n_matrix);
+		i++;
+		count--;
+	}
+	ft_free_matrix(n_matrix, i);
+}
+
+int	valid_atoi(const char *nptr, t_stack *a, t_stack *b, char **n_matrix)
 {
 	unsigned char	i;
 	int				sign;
-	int				num;
+	long			num;
 
 	i = 0;
 	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n'
@@ -48,42 +76,37 @@ int	ft_valid_atoi(const char *nptr)
 		sign = -1;
 	if (nptr[i] == '-' || nptr[i] == '+')
 		i++;
+	if (nptr[i] == '\0')
+		ft_handle_error(a, b, 2, n_matrix);
 	num = 0;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		num = num * 10 + (nptr[i] - '0');
-		i++;
-	}
-	if (nptr[i] != 0 && (nptr[i] < '0' || nptr[i] > '9'))
-	{
-		write(2, "Error\n", 6);
-		exit(EXIT_FAILURE);
-	}
-	return (sign * num);
+		num = num * 10 + (nptr[i++] - '0');
+	if (nptr[i] != '\0' && (nptr[i] < '0' || nptr[i] > '9'))
+		ft_handle_error(a, b, 2, n_matrix);
+	num *= sign;
+	if (num < INT_MIN || num > INT_MAX)
+		ft_handle_error(a, b, 2, n_matrix);
+	return (num);
 }
 
-void	generate_stacks(t_stack *a, t_stack *b, char **num_matrix)
+void	check_for_duplicate(t_stack *a, t_stack *b)
 {
-	int	count;
 	int	i;
+	int	j;
 
-	count = 0;
-	while (num_matrix[count])
-		count++;
-	a->maxsize = count;
-	a->top = count;
-	a->items = ft_calloc(count + 1, sizeof(int));
-	b->maxsize = count;
-	b->top = 0;
-	b->items = ft_calloc(count + 1, sizeof(int));
 	i = 0;
-	while (count > 0)
+	while (i < a->top - 1)
 	{
-		a->items[i] = ft_valid_atoi(num_matrix[count - 1]);
+		j = i + 1;
+		while (j < a->top)
+		{
+			if (a->items[i] != a->items[j])
+				j++;
+			else
+				ft_handle_error(a, b, 3, NULL);
+		}
 		i++;
-		count--;
 	}
-	ft_free_matrix(num_matrix, i);
 }
 
 int	main(int argc, char *argv[])
@@ -92,31 +115,16 @@ int	main(int argc, char *argv[])
 	t_stack	b;
 	char	**num_matrix;
 
-//	ft_printf("argc = %d\n", argc);
-	if (argc < 2)
-		exit(EXIT_FAILURE);
-	num_matrix = parse_argv(argc, argv);
-//	ft_printf("max int: %d\n", INT_MAX);
-	//check for duplicate
-	//check for ascii
-	generate_stacks(&a, &b, num_matrix);
-	if (check_if_sorted(&a) == 1)
+	if (argc < 2 || argv[1][0] == '\0')
 	{
-//	ft_simplify_nums(&a);
-//	print_sequence(&a);
-//	ft_opt_radixsort(&a, &b);
-//	ft_radixsort(&a, &b, 10);
-//	ft_bubble_sort(&a, &b);
-//		if (a.maxsize < 10)
-//			ft_small_sort(&a, &b);
-//	ft_sort_3(&a);
-//		else
-//		ft_opt_radixsort(&a, &b);
-			ft_turk_sort(&a, &b);
-			//ft_divide_sort(&a, &b);
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
 	}
-//	ft_proximity_sort(&a, &b);
-//	print_sequence(&a);
+	num_matrix = parse_argv(argc, argv);
+	generate_stacks(&a, &b, num_matrix);
+	check_for_duplicate(&a, &b);
+	if (check_if_sorted(&a) == 1)
+		ft_turk_sort(&a, &b);
 	free(a.items);
 	free(b.items);
 	return (0);

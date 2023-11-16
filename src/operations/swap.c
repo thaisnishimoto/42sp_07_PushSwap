@@ -6,7 +6,7 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:30:04 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/11/07 15:48:49 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/15 22:05:21 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,3 @@ void	ft_swap_top(t_stack *stack)
 	i = stack->top - 1;
 	ft_swap(&stack->items[i], &stack->items[i - 1]);
 }
-

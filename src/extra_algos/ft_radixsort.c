@@ -6,11 +6,11 @@
 /*   By: tmina-ni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:53:48 by tmina-ni          #+#    #+#             */
-/*   Updated: 2023/11/07 14:53:33 by tmina-ni         ###   ########.fr       */
+/*   Updated: 2023/11/15 23:00:41 by tmina-ni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 int	count_digits(t_stack *a, int base, int *neg_flag)
 {
