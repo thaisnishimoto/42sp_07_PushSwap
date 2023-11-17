@@ -11,13 +11,23 @@
 **Grade:** ___/100
 
 <h2>
+Content
+</h2>
+
+[Mandatory Part](https://github.com/thaisnishimoto/42sp_06_Pipex#about-the-project---mandatory-part)
+
+[Bonus Part]()
+
+[Testers]()
+
+<h2>
 About the project - mandatory part
 </h2>
 
-The program `push_swap` gives a list of operations to sort numbers on a stack, in ascending order.
-You have at your disposal 2 stacks. Stack a contains a list of numbers and stack b is empty.
+The program `push_swap` gives a list of instructions to sort numbers on a stack, in ascending order. <br>
+You have 2 stacks at your disposal: Stack a contains a list of numbers and stack b is empty.
 
-## Operations allowed on the stacks
+### Operations allowed on the stacks
 
 | Code  | Operation                           | Action                                                  |
 | ----- | ----------------------------------- | ------------------------------------------------------- |
@@ -33,6 +43,18 @@ You have at your disposal 2 stacks. Stack a contains a list of numbers and stack
 | `rrb` | reverse rotate b                    | shifts down all elements of stack b by 1                |
 | `rrr` | reverse rotate a + reverse rotate b | `rra` and `rrb` at the same time                        |
 
-Algorithm
+### Algorithm
 
-I s
+I started by studying about sorting algorithms and implemented a few based on:
+* [Quicksort](https://github.com/thaisnishimoto/42sp_07_PushSwap/blob/master/src/extra_algos/ft_quicksort.c): Divide the stack in smaller cohorts and then find the greatest number to push back to final stack. <br>
+* [Radix Sort](https://github.com/thaisnishimoto/42sp_07_PushSwap/blob/master/src/extra_algos/ft_radixsort.c): Sorts the number in the chosen base, separating by the digits (by the units, dozens, hundreds, etc.). It doesn't require comparisons and handles negative numbers <br>
+* [Opt Radix Sort](https://github.com/thaisnishimoto/42sp_07_PushSwap/blob/master/src/extra_algos/ft_opt_radixsort.c): To optimize radixsort, simplify the numbers so that it ranges from 0 to N (N being the size of the list). This minimizes the number of digits and removes the need to handle negative numbers. Also, use a binary base, so that only digits == 0 have to be pushed around.
+
+Finally, to achieve the performance necessary to score 100 on the mandatory, I based my final algorithm on the [Turk Algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97). <br>
+I consists on the following steps:
+1. Separate all numbers, but 3 on the empty stack b.
+2. Sort remaining the 3 numbers on stack a with a specific hard coded algorithm that checks for all possible combinations.
+3. Calculate the amount of operations necessary to move each of the number on stack b to it's correct location on stack a.
+4. Find the "cheapest" number to move and execute the command.
+5. Repeat step 3 and 4 until stack b i empty.
+6. Stack a will be sorted, but no necessarily with the lowest number on top, so find the lowest number and shift if to the top.
