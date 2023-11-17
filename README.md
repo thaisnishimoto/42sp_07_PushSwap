@@ -7,8 +7,8 @@
  Status
 </h2>
 
-**Finished:**  ___ <br>
-**Grade:** ___/100
+**Finished:**  2023, November 17th <br>
+**Grade:** 125/100
 
 <h2>
 Content
@@ -117,7 +117,7 @@ My tester
 I wrote a script to run multiple tests on `push_swap`. <br>
 It has 2 arguments:
 * Amount of tests - it runs this amount of tests and shows the count of operations needed for each of them.
-* Amount of numbers - it generates this amount of random numbers ranging from INT_MIN to INT_MAX, for each test. 
+* Amount of numbers - it generates this amount of random numbers for each test. 
 At the end, it checks if the sorting was done correctly (OK/KO) and displays the average of moves among all the tests run.
 
 ### Usage
