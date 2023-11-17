@@ -14,7 +14,7 @@
 Content
 </h2>
 
-[Mandatory Part](https://github.com/thaisnishimoto/42sp_06_Pipex#about-the-project---mandatory-part)
+[Mandatory Part](https://github.com/thaisnishimoto/42sp_07_PushSwap#about-the-project---mandatory-part)
 
 [Bonus Part]()
 
