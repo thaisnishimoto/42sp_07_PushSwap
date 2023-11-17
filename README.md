@@ -58,3 +58,26 @@ I consists on the following steps:
 4. Find the "cheapest" number to move and execute the command.
 5. Repeat step 3 and 4 until stack b i empty.
 6. Stack a will be sorted, but no necessarily with the lowest number on top, so find the lowest number and shift if to the top.
+
+### Usage example and visualization
+
+```sh
+git clone git@github.com:thaisnishimoto/42sp_07_PushSwap.git
+```
+```sh
+make
+```
+```
+>$./push_swap 25 -19 42 -7 0
+pb
+pb
+ra
+pa
+rra
+pa
+ra
+ra
+$>ARG="25 -19 42 -7 0"; ./push_swap $ARG | wc -l
+8
+
+```
