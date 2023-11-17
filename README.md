@@ -18,7 +18,7 @@ Content
 
 [Bonus Part]()
 
-[Testers]()
+[My tester]()
 
 <h2>
 About the project - mandatory part
@@ -68,7 +68,7 @@ git clone git@github.com:thaisnishimoto/42sp_07_PushSwap.git
 make
 ```
 ```
->$./push_swap 25 -19 42 -7 0
+$>./push_swap 25 -19 42 -7 0
 pb
 pb
 ra
@@ -77,7 +77,35 @@ rra
 pa
 ra
 ra
+
 $>ARG="25 -19 42 -7 0"; ./push_swap $ARG | wc -l
 8
+```
 
+<h2>
+Bonus part - Checker
+</h2>
+
+The `checker` program receives random numbers as argument and waits for instructions to sort them. <br>
+When the instructions are over, press `CTRL + D` so it stops reading from the `STDIN` <br>
+It will then check if the stack is sorted or not.
+
+### Usage example
+
+```sh
+make bonus
+```
+```
+$>./checker 3 1 2
+ra
+[ctrl + d]
+OK
+
+$>./checker 3 1 2
+sa
+[ctrl + d]
+KO
+
+$>ARG="25 -19 42 -7 0"; ./push_swap $ARG | ./checker $ARG
+OK
 ```
