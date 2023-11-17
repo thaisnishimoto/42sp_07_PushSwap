@@ -109,3 +109,48 @@ KO
 $>ARG="25 -19 42 -7 0"; ./push_swap $ARG | ./checker $ARG
 OK
 ```
+
+<h2>
+My tester
+</h2>
+
+I wrote a script to run multiple tests on `push_swap`. <br>
+It has 2 arguments:
+* Amount of tests - it runs this amount of tests and shows the count of operations needed for each of them.
+* Amount of numbers - it generates this amount of random numbers ranging from INT_MIN to INT_MAX, for each test. 
+At the end, it checks if the sorting was done correctly (OK/KO) and displays the average of moves among all the tests run.
+
+### Usage
+
+Copy [my_test directory](https://github.com/thaisnishimoto/42sp_07_PushSwap/tree/master/my_tests) into your project's directory.
+```sh
+cp push_swap ./my_tests/push_swap
+```
+```sh
+cd my_tests
+```
+```sh
+cp push_swap ./my_tests/push_swap
+```
+```sh
+chmod +x checker_linux push_swap
+```
+```sh
+bash tester_push.sh [amout of tests] [amount of numbers]
+```
+
+### Example
+```
+$>./checker 3 1 2
+ra
+[ctrl + d]
+OK
+
+$>./checker 3 1 2
+sa
+[ctrl + d]
+KO
+
+$>ARG="25 -19 42 -7 0"; ./push_swap $ARG | ./checker $ARG
+OK
+```
