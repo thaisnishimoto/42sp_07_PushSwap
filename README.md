@@ -14,6 +14,7 @@
 **Finished:**  2023, November 17th <br>
 **Grade:** 125/100
 
+<br>
 <h2>
 Content
 </h2>
@@ -24,6 +25,7 @@ Content
 
 [My Tester](https://github.com/thaisnishimoto/42sp_07_PushSwap#my-tester)
 
+<br>
 <h2>
 About the project - mandatory part
 </h2>
@@ -90,6 +92,7 @@ $>ARG="25 -19 42 -7 0"; ./push_swap $ARG | wc -l
 To illustrate how my `push_swap` handles the numbers to sort them, I used a [visualizer](https://github.com/o-reo/push_swap_visualizer) program. <br>
 It checks if the list of commands is correct, and then executes them. 
 
+<br>
 <h2>
 Bonus part - Checker
 </h2>
@@ -118,6 +121,7 @@ $>ARG="25 -19 42 -7 0"; ./push_swap $ARG | ./checker $ARG
 OK
 ```
 
+<br>
 <h2>
 My Tester
 </h2>
