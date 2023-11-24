@@ -14,7 +14,6 @@
 **Finished:**  2023, November 17th <br>
 **Grade:** 125/100
 
-<br>
 <h2>
 Content
 </h2>
