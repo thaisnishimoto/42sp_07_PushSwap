@@ -16,9 +16,9 @@ Content
 
 [Mandatory Part](https://github.com/thaisnishimoto/42sp_07_PushSwap#about-the-project---mandatory-part)
 
-[Bonus Part]()
+[Bonus Part](https://github.com/thaisnishimoto/42sp_07_PushSwap#bonus-part---checker)
 
-[My tester]()
+[My Tester](https://github.com/thaisnishimoto/42sp_07_PushSwap#my-tester)
 
 <h2>
 About the project - mandatory part
@@ -45,21 +45,20 @@ You have 2 stacks at your disposal: Stack a contains a list of numbers and stack
 
 ### Algorithm
 
-I started by studying about sorting algorithms and implemented a few based on:
+I started out by studying about sorting algorithms and implemented a few based on:
 * [Quicksort](https://github.com/thaisnishimoto/42sp_07_PushSwap/blob/master/src/extra_algos/ft_quicksort.c): Divide the stack in smaller cohorts and then find the greatest number to push back to final stack. <br>
 * [Radix Sort](https://github.com/thaisnishimoto/42sp_07_PushSwap/blob/master/src/extra_algos/ft_radixsort.c): Sorts the number in the chosen base, separating by the digits (by the units, dozens, hundreds, etc.). It doesn't require comparisons and handles negative numbers <br>
 * [Opt Radix Sort](https://github.com/thaisnishimoto/42sp_07_PushSwap/blob/master/src/extra_algos/ft_opt_radixsort.c): To optimize radixsort, simplify the numbers so that it ranges from 0 to N (N being the size of the list). This minimizes the number of digits and removes the need to handle negative numbers. Also, use a binary base, so that only digits == 0 have to be pushed around.
 
-Finally, to achieve the performance necessary to score 100 on the mandatory, I based my final algorithm on the [Turk Algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97). <br>
-I consists on the following steps:
-1. Separate all numbers, but 3 on the empty stack b.
-2. Sort remaining the 3 numbers on stack a with a specific hard coded algorithm that checks for all possible combinations.
-3. Calculate the amount of operations necessary to move each of the number on stack b to it's correct location on stack a.
-4. Find the "cheapest" number to move and execute the command.
-5. Repeat step 3 and 4 until stack b i empty.
-6. Stack a will be sorted, but no necessarily with the lowest number on top, so find the lowest number and shift if to the top.
+Finally, to achieve the performance necessary to score 100 on the mandatory, I based my final algorithm on the [Turk Algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97). It consists on the following steps:
+1. Push all numbers, but the last 3 to **stack b**.
+2. Sort the remaining 3 numbers on **stack a** with a specific [hard coded algorithm](https://github.com/thaisnishimoto/42sp_07_PushSwap/blob/master/src/ft_sort_3.c) that checks for all possible combinations.
+3. Calculate the amount of operations necessary to move each of the numbers on **stack b** to it's correct location on **stack a**.
+4. Find the "cheapest" number to move and execute the commands to push it to it's target location.
+5. Repeat step 3 and 4 until **stack b** is empty.
+6. **Stack a** will be sorted, but not necessarily with the lowest number on top, so find the lowest number and shift if to the top.
 
-### Usage example and visualization
+### Usage example
 
 ```sh
 git clone git@github.com:thaisnishimoto/42sp_07_PushSwap.git
@@ -81,6 +80,11 @@ ra
 $>ARG="25 -19 42 -7 0"; ./push_swap $ARG | wc -l
 8
 ```
+
+### Visualization
+
+To illustrate how my `push_swap` handles the numbers to sort them, I used a [visualizer](https://github.com/o-reo/push_swap_visualizer) program. <br>
+It checks if the list of commands is correct, and then executes them. 
 
 <h2>
 Bonus part - Checker
@@ -111,7 +115,7 @@ OK
 ```
 
 <h2>
-My tester
+My Tester
 </h2>
 
 I wrote a script to run multiple tests on `push_swap`. <br>
