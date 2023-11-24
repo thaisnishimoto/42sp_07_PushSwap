@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/thaisnishimoto/42-project-badges/blob/main/badges/push_swapm.png" alt="Push bonus"/>
+</p>
+
 <h1 align=center>
 	<b>Push_swap</b>
 </h1>
@@ -145,16 +149,23 @@ bash tester_push.sh [amout of tests] [amount of numbers]
 
 ### Example
 ```
-$>./checker 3 1 2
-ra
-[ctrl + d]
-OK
+$> bash tester_push.sh 10 100
+--------------------------------------------------
+      PUSH SWAP TESTER: Sorting 100 numbers
+--------------------------------------------------
 
-$>./checker 3 1 2
-sa
-[ctrl + d]
-KO
+Test 1. [OK] (550 moves) 
+Test 2. [OK] (603 moves) 
+Test 3. [OK] (576 moves) 
+Test 4. [OK] (585 moves) 
+Test 5. [OK] (598 moves) 
+Test 6. [OK] (570 moves) 
+Test 7. [OK] (606 moves) 
+Test 8. [OK] (571 moves) 
+Test 9. [OK] (632 moves) 
+Test 10. [OK] (637 moves) 
 
-$>ARG="25 -19 42 -7 0"; ./push_swap $ARG | ./checker $ARG
-OK
+----Results----
+OK: [10/10]
+Avg moves:592
 ```
