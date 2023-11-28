@@ -91,6 +91,8 @@ $>ARG="25 -19 42 -7 0"; ./push_swap $ARG | wc -l
 To illustrate how my `push_swap` handles the numbers to sort them, I used a [visualizer](https://github.com/o-reo/push_swap_visualizer) program. <br>
 It checks if the list of commands is correct, and then executes them. 
 
+![](https://github.com/thaisnishimoto/42sp_07_PushSwap/blob/master/gif/gif_push_swap.gif) _Sorting 500 numbers_
+
 <br>
 <h2>
 Bonus part - Checker
